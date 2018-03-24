@@ -3,9 +3,9 @@
 # Recipe:: default
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
- if node[platform_family] == "rehl"
+ if node['platform_family'] == "rhel"
      package="httpd"
- elsif node[platform_family] == "debian"
+ elsif node['platform_family'] == "debian"
      package="apache2"
 end
 
@@ -15,7 +15,7 @@ package 'apache2' do
 end
 
 service 'apache2' do
-      service_name  package
+      service_name 'httpd' 
       action [:start , :enable]
 end
 
